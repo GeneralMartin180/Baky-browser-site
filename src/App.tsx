@@ -6,7 +6,6 @@ import {
   Download,
   EyeOff,
   Globe,
-  History,
   Layout,
   Lock,
   Menu,
@@ -18,7 +17,8 @@ import {
 import { useState } from "react";
 
 const BAKY_LOGO = "/BakyBrowser.png";
-const DOWNLOAD_URL = "https://drive.google.com/drive/folders/1pnSBlqJQI-wZGXkVXkfRIp-OKipQDnFt?usp=sharing";
+const BAKY_CLOUD_LOGO = "/Baky_cloud_-removebg.png";
+const DOWNLOAD_URL = "https://drive.google.com/uc?export=download&id=18ZyjgSSt5NIY7ASqgcuOvnZy7AhzjihY";
 
 const BrandMark = ({ large = false }: { large?: boolean }) => (
   <img
@@ -28,6 +28,20 @@ const BrandMark = ({ large = false }: { large?: boolean }) => (
       large ? "w-14 h-14 rounded-[18px]" : "w-9 h-9 rounded-[12px]"
     } object-cover shadow-[0_10px_30px_rgba(37,99,235,0.20)]`}
   />
+);
+
+const CloudMark = ({ large = false, framed = false }: { large?: boolean; framed?: boolean }) => (
+  <div
+    className={`inline-flex items-center justify-center ${
+      large ? "w-14 h-14 rounded-[18px]" : "w-9 h-9 rounded-[12px]"
+    } ${framed ? "border border-white/50 bg-white/90 p-1.5 shadow-sm" : "p-0.5"}`}
+  >
+    <img
+      src={BAKY_CLOUD_LOGO}
+      alt="Baky Cloud"
+      className="w-full h-full object-contain drop-shadow-[0_8px_18px_rgba(37,99,235,0.18)]"
+    />
+  </div>
 );
 
 const Navbar = () => {
@@ -49,8 +63,8 @@ const Navbar = () => {
             <a href="#funkcie" className="text-sm font-medium text-slate-600 hover:text-brand transition-colors">
               Funkcie
             </a>
-            <a href="#preco" className="text-sm font-medium text-slate-600 hover:text-brand transition-colors">
-              Prečo Baky Browser
+            <a href="#cloud" className="text-sm font-medium text-slate-600 hover:text-brand transition-colors">
+              Baky Cloud
             </a>
             <a href="#rozhranie" className="text-sm font-medium text-slate-600 hover:text-brand transition-colors">
               Rozhranie
@@ -84,8 +98,8 @@ const Navbar = () => {
           <a href="#funkcie" onClick={() => setIsOpen(false)} className="text-sm font-medium text-slate-700">
             Funkcie
           </a>
-          <a href="#preco" onClick={() => setIsOpen(false)} className="text-sm font-medium text-slate-700">
-            Prečo Baky Browser
+          <a href="#cloud" onClick={() => setIsOpen(false)} className="text-sm font-medium text-slate-700">
+            Baky Cloud
           </a>
           <a href="#rozhranie" onClick={() => setIsOpen(false)} className="text-sm font-medium text-slate-700">
             Rozhranie
@@ -113,9 +127,9 @@ const HeroPreview = () => (
     <div className="relative rounded-[28px] overflow-hidden border border-slate-200 bg-white p-2 shadow-[0_30px_80px_rgba(15,23,42,0.18)]">
       <div className="rounded-[22px] overflow-hidden border border-slate-100 bg-white">
         <div className="h-14 bg-[#eef2f7] border-b border-slate-200 flex items-end px-3 pt-3 gap-2">
-          <div className="h-10 min-w-[188px] rounded-t-[14px] bg-white border border-slate-200 border-b-white px-3 flex items-center gap-2 text-[13px] font-semibold text-slate-700">
-            <BrandMark />
-            <span>Nová karta</span>
+          <div className="h-10 min-w-[210px] rounded-t-[14px] bg-white border border-slate-200 border-b-white px-3 flex items-center gap-2 text-[13px] font-semibold text-slate-700">
+            <CloudMark />
+            <span>Baky Cloud</span>
             <X size={14} className="ml-auto text-slate-400" />
           </div>
           <button className="w-8 h-8 rounded-full text-slate-500 flex items-center justify-center mb-1">
@@ -127,16 +141,11 @@ const HeroPreview = () => (
           <div className="flex items-center gap-2 text-slate-400">
             <ChevronRight size={16} className="rotate-180" />
             <ChevronRight size={16} />
-            <History size={16} />
+            <Shield size={16} />
           </div>
           <div className="flex-1 h-10 rounded-full bg-[#e9eef5] border border-slate-200 flex items-center px-4 gap-3 text-sm text-slate-500">
-            <img
-              src="https://www.google.com/favicon.ico"
-              alt="Google"
-              className="w-4 h-4"
-              referrerPolicy="no-referrer"
-            />
-            <span>Vyhľadajte cez Google alebo zadajte adresu</span>
+            <Globe size={16} />
+            <span>Vyhľadajte cez Brave alebo zadajte adresu</span>
           </div>
           <div className="text-slate-400">
             <Menu size={18} />
@@ -150,25 +159,25 @@ const HeroPreview = () => (
               <div className="text-[38px] md:text-[44px] font-black tracking-tight text-slate-900">
                 Baky Browser
               </div>
-              <div className="text-sm text-slate-500">Moderný browser od Baky OS</div>
+              <div className="text-sm text-slate-500">Baky Cloud, adblock a kontrola nad súkromím</div>
             </div>
           </div>
 
           <div className="w-full max-w-[680px] h-[54px] rounded-[16px] bg-white border border-slate-200 shadow-[0_10px_30px_rgba(15,23,42,0.08)] flex items-center px-5 gap-3">
-            <img
-              src="https://www.google.com/favicon.ico"
-              alt="Google"
-              className="w-5 h-5"
-              referrerPolicy="no-referrer"
-            />
-            <span className="text-sm text-slate-500">Search with Google or enter address</span>
+            <Globe size={18} className="text-slate-400" />
+            <span className="text-sm text-slate-500">Vyhľadajte cez Brave alebo zadajte adresu</span>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 mt-10 w-full max-w-[560px]">
+          <div className="mt-6 inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white/95 px-4 py-2 shadow-sm">
+            <CloudMark />
+            <span className="text-sm font-semibold text-slate-700">Baky Cloud je pripravený</span>
+          </div>
+
+          <div className="grid grid-cols-3 gap-3 mt-10 w-full max-w-[620px]">
             {[
-              { label: "AdBlock", text: "Blokovanie rušivých reklám" },
-              { label: "AI panel", text: "Rýchly prístup k AI nástrojom" },
-              { label: "Súkromie", text: "Jedno kliknutie na vymazanie stôp" },
+              { label: "Baky Cloud", text: "Oddelená session s Tor routovaním a .onion podporou" },
+              { label: "Anti-tracking", text: "Blokovanie reklám, Google tagov a tracking requestov" },
+              { label: "Bezpečnosť", text: "Úrovne Standard, Safer a Safest priamo v nastaveniach" },
             ].map((item) => (
               <div
                 key={item.label}
@@ -176,6 +185,17 @@ const HeroPreview = () => (
               >
                 <div className="text-sm font-bold text-slate-900">{item.label}</div>
                 <div className="mt-2 text-[11px] leading-4 text-slate-500">{item.text}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            {["Windows build", "Tor bundle", "Bez klasickej histórie"].map((tag) => (
+              <div
+                key={tag}
+                className="rounded-full border border-slate-200 bg-white/90 px-4 py-2 text-xs font-semibold text-slate-600 shadow-sm"
+              >
+                {tag}
               </div>
             ))}
           </div>
@@ -198,11 +218,12 @@ const Hero = () => (
           Produkt od Baky OS
         </div>
         <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.02] tracking-tight mb-6">
-          Rýchly, čistý a moderný browser pre Windows.
+          Windows browser s Baky Cloud, adblockom a väčšou kontrolou nad súkromím.
         </h1>
         <p className="text-xl text-slate-600 max-w-xl leading-relaxed mb-8">
-          Baky Browser je desktopový webový prehliadač od Baky OS. Stavia na rýchlom štarte,
-          čistom rozhraní, blokovaní reklám a väčšej kontrole nad súkromím.
+          Baky Browser je desktopový prehliadač od Baky OS. Prináša Baky Cloud režim s Tor
+          routovaním, blokovanie reklám a trackerov, bezpečnostné úrovne Standard, Safer a
+          Safest a čisté rozhranie pripravené pre Windows.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
@@ -227,14 +248,16 @@ const Hero = () => (
         <div className="mt-8 flex flex-wrap gap-6 text-sm text-slate-500">
           <div className="flex items-center gap-2">
             <CheckCircle2 size={16} className="text-brand" />
-            <span>Vytvorený pod značkou Baky OS</span>
+            <span>Baky Cloud používa Tor routovanie a oddelenú session</span>
           </div>
           <div className="flex items-center gap-2">
             <CheckCircle2 size={16} className="text-brand" />
-            <span>Zameraný na výkon a súkromie</span>
+            <span>Windows build obsahuje aj pribalený Tor bundle</span>
           </div>
         </div>
-        <p className="mt-4 text-sm font-medium text-slate-500">Sťahuje sa z Google Disku.</p>
+        <p className="mt-4 text-sm font-medium text-slate-500">
+          Najnovší build sa sťahuje priamo z Google Disku.
+        </p>
       </motion.div>
 
       <motion.div
@@ -251,34 +274,34 @@ const Hero = () => (
 const Features = () => {
   const features = [
     {
-      icon: <Zap className="text-amber-500" />,
-      title: "Rýchle spustenie",
-      desc: "Odľahčený štart a svižnejší pocit pri práci s kartami a stránkami.",
-    },
-    {
-      icon: <Layout className="text-blue-500" />,
-      title: "Moderné karty",
-      desc: "Prehľadné horné rozhranie, nová karta a čistý browser layout bez zbytočností.",
-    },
-    {
-      icon: <Shield className="text-emerald-500" />,
-      title: "Ochrana súkromia",
-      desc: "Viac kontroly nad cookies, históriou a stopami po prehliadaní.",
+      icon: <Globe className="text-blue-500" />,
+      title: "Baky Cloud",
+      desc: "Oddelená cloud session s Tor routovaním, .onion adresami a vlastným súkromným tokom prehliadania.",
     },
     {
       icon: <EyeOff className="text-rose-500" />,
-      title: "Blokovanie reklám",
-      desc: "Integrované filtrovanie rušivých reklám a trackerov pre čistejší web.",
+      title: "AdBlock a anti-tracking",
+      desc: "Blokovanie reklám, Google tagov, analytics, doubleclick requestov a ďalších sledovacích vrstiev.",
     },
     {
-      icon: <Sparkles className="text-violet-500" />,
-      title: "AI panel",
-      desc: "Bočný panel s rýchlym prístupom k AI nástrojom priamo počas prehliadania.",
+      icon: <Shield className="text-emerald-500" />,
+      title: "Bezpečnostné úrovne",
+      desc: "Standard, Safer a Safest. Ty rozhoduješ, koľko webových funkcií majú stránky dostať.",
     },
     {
-      icon: <History className="text-indigo-500" />,
-      title: "Záložky a história",
-      desc: "Jednoduchší návrat k obľúbeným stránkam a prehľad o navštívenom obsahu.",
+      icon: <Layout className="text-indigo-500" />,
+      title: "Čisté rozhranie",
+      desc: "Nová karta, horný panel a homepage bez chaosu. Dôraz je na použiteľnosť a čitateľnosť.",
+    },
+    {
+      icon: <Lock className="text-violet-500" />,
+      title: "Súkromie bez histórie",
+      desc: "Browser nemá klasickú históriu prehliadania. Prihlásenia si vie ponechať cez cookies, keď to potrebuješ.",
+    },
+    {
+      icon: <Zap className="text-amber-500" />,
+      title: "Windows build s Torom",
+      desc: "Portable build je pripravený na stiahnutie a Baky Cloud vie fungovať aj s pribaleným Tor bundle.",
     },
   ];
 
@@ -287,10 +310,11 @@ const Features = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-black tracking-tight text-slate-900 mb-4">
-            Funkcie, ktoré dávajú zmysel
+            Funkcie, ktoré už v Baky Browseri reálne sú
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Bez marketingových rozprávok. Len veci, ktoré majú zlepšiť každodenné prehliadanie.
+            Žiadne vymyslené milióny používateľov. Len to, čo dnes Baky Browser prináša na
+            Windowse.
           </p>
         </div>
 
@@ -319,20 +343,20 @@ const Features = () => {
 
 const WhyBaky = () => {
   const points = [
-    "Patrí pod značku Baky OS",
-    "Navrhnutý pre rýchly štart a čisté používanie",
-    "Má vlastné moderné rozhranie novej karty",
-    "Ponúka blokovanie reklám a väčšiu kontrolu nad súkromím",
-    "Mieri na jednoduchý browser pre Windows bez zbytočného balastu",
+    "Patrí pod značku Baky OS a má vlastné vizuálne smerovanie.",
+    "Baky Cloud beží cez oddelenú session s Tor routovaním, nie len cez obyčajné nové okno.",
+    "Blokuje reklamy, Google tagy a tracking requesty priamo v browseri.",
+    "Browser nemá klasickú históriu prehliadania, ale cookies môže ponechať na prihlásenie.",
+    "Windows build môžeš zdieľať ako portable balík aj s pribaleným Tor bundle.",
   ];
 
   return (
-    <section id="preco" className="py-24 px-4 overflow-hidden">
+    <section id="cloud" className="py-24 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
         <div className="relative">
           <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} className="relative z-10">
             <h2 className="text-3xl lg:text-4xl font-black tracking-tight text-slate-900 mb-8">
-              Prečo Baky Browser
+              Prečo Baky Cloud a nie len ďalší skin na browser
             </h2>
             <div className="space-y-4">
               {points.map((point) => (
@@ -354,27 +378,35 @@ const WhyBaky = () => {
         <div className="grid grid-cols-2 gap-4">
           <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} className="space-y-4">
             <div className="aspect-square rounded-[28px] bg-brand p-8 flex flex-col justify-end text-white shadow-xl">
-              <Zap size={32} className="mb-4" />
-              <h4 className="font-bold text-lg">Rýchlosť pri štarte</h4>
-              <p className="mt-2 text-sm text-blue-100">Pocitovo svižnejší browser bez zbytočných vrstiev navyše.</p>
+              <CloudMark large framed />
+              <h4 className="font-bold text-lg">Baky Cloud</h4>
+              <p className="mt-2 text-sm text-blue-100">
+                Tor routovanie, .onion podpora a oddelená session bez zbytočného UX chaosu.
+              </p>
             </div>
             <div className="aspect-[3/4] rounded-[28px] bg-white border border-slate-200 p-8 flex flex-col justify-end shadow-sm">
-              <Shield size={32} className="mb-4 text-emerald-500" />
-              <h4 className="font-bold text-lg text-slate-900">Viac kontroly</h4>
-              <p className="mt-2 text-sm text-slate-500">Mazanie histórie, cookies a stôp po prehliadaní priamo v nastaveniach.</p>
+              <EyeOff size={32} className="mb-4 text-rose-500" />
+              <h4 className="font-bold text-lg text-slate-900">Bez klasickej histórie</h4>
+              <p className="mt-2 text-sm text-slate-500">
+                Browser sa nespolieha na klasickú históriu prehliadania. Prihlásenia ostávajú cez cookies.
+              </p>
             </div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: -18 }} whileInView={{ opacity: 1, y: 0 }} className="space-y-4 pt-12">
             <div className="aspect-[3/4] rounded-[28px] bg-slate-900 p-8 flex flex-col justify-end text-white shadow-xl">
-              <Sparkles size={32} className="mb-4 text-blue-300" />
-              <h4 className="font-bold text-lg">AI po ruke</h4>
-              <p className="mt-2 text-sm text-slate-300">Bočný panel pre rýchle prepnutie medzi webom a AI nástrojmi.</p>
+              <Shield size={32} className="mb-4 text-blue-300" />
+              <h4 className="font-bold text-lg">Anti-tracking</h4>
+              <p className="mt-2 text-sm text-slate-300">
+                Google ads, tagy, analytics a ďalšie trackery dostávajú blok už na request vrstve.
+              </p>
             </div>
             <div className="aspect-square rounded-[28px] bg-white border border-slate-200 p-8 flex flex-col justify-end text-slate-900 shadow-sm">
-              <Layout size={32} className="mb-4 text-brand" />
-              <h4 className="font-bold text-lg">Čisté rozhranie</h4>
-              <p className="mt-2 text-sm text-slate-500">Vizuál zameraný na obsah, nie na chaos a zbytočné prvky.</p>
+              <Lock size={32} className="mb-4 text-brand" />
+              <h4 className="font-bold text-lg">Standard, Safer, Safest</h4>
+              <p className="mt-2 text-sm text-slate-500">
+                Bezpečnostné úrovne prepínajú JavaScript a ďalšie webové funkcie podľa tvojho nastavenia.
+              </p>
             </div>
           </motion.div>
         </div>
@@ -385,19 +417,19 @@ const WhyBaky = () => {
 
 const Stats = () => {
   const items = [
-    { value: "Windows", label: "Desktopový browser pripravený pre Windows" },
-    { value: "AdBlock", label: "Integrované blokovanie reklám a trackerov" },
-    { value: "AI panel", label: "Rýchly prístup k AI nástrojom priamo z rozhrania" },
-    { value: "1 klik", label: "Vymazanie histórie, cookies a lokálnych stôp" },
+    { value: "Baky Cloud", label: "Oddelená session, Tor routovanie a .onion podpora" },
+    { value: "Anti-tracking", label: "Blokovanie reklám, Google tagov a tracking endpointov" },
+    { value: "3 úrovne", label: "Standard, Safer a Safest pre rôzne úrovne ochrany" },
+    { value: "Windows", label: "Portable build s pribaleným Tor bundle pripravený na zdieľanie" },
   ];
 
   return (
     <section id="statistiky" className="py-24 bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-14">
-          <h2 className="text-3xl lg:text-4xl font-black tracking-tight mb-4">Čo Baky Browser prináša</h2>
+          <h2 className="text-3xl lg:text-4xl font-black tracking-tight mb-4">Čo dnes Baky Browser prináša</h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Radšej pravdivé silné body než vymyslené milióny stiahnutí.
+            Reálne body, ktoré sedia s tým, ako je Baky Browser spravený dnes.
           </p>
         </div>
 
@@ -425,10 +457,11 @@ const InterfacePreview = () => (
     <div className="max-w-7xl mx-auto px-4">
       <div className="text-center mb-16">
         <h2 className="text-3xl lg:text-4xl font-black tracking-tight text-slate-900 mb-4">
-          Rozhranie navrhnuté pre každodenné používanie
+          Rozhranie navrhnuté na normálne používanie
         </h2>
         <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          Nová karta, horný browser panel a bočné nástroje majú pôsobiť čisto, moderne a zrozumiteľne.
+          Baky Browser sa nesnaží tváriť ako obrovský korporátny projekt. Cieľ je čisté okno,
+          rýchly štart a viac kontroly nad tým, čo web môže robiť.
         </p>
       </div>
 
@@ -451,15 +484,18 @@ const InterfacePreview = () => (
               </div>
               <div className="h-14 rounded-[18px] border border-slate-200 shadow-sm bg-white flex items-center px-5 gap-3 max-w-[720px] mx-auto">
                 <Globe size={18} className="text-slate-400" />
-                <span className="text-sm text-slate-500">Search with Google or enter address</span>
+                <span className="text-sm text-slate-500">Vyhľadajte cez Brave alebo zadajte adresu</span>
               </div>
               <div className="grid md:grid-cols-3 gap-4 mt-10">
                 {[
-                  "Nová karta s čistým rozhraním",
-                  "Bočný AI panel pre rýchlu pomoc",
-                  "AdBlock a súkromie priamo v browseri",
+                  "Baky Cloud okno s Tor routovaním a .onion podporou",
+                  "Bezpečnostné úrovne Standard, Safer a Safest",
+                  "AdBlock a anti-tracking priamo v browseri",
                 ].map((text) => (
-                  <div key={text} className="rounded-[20px] border border-slate-200 bg-slate-50 px-4 py-4 text-sm text-slate-600">
+                  <div
+                    key={text}
+                    className="rounded-[20px] border border-slate-200 bg-slate-50 px-4 py-4 text-sm text-slate-600"
+                  >
                     {text}
                   </div>
                 ))}
@@ -471,19 +507,19 @@ const InterfacePreview = () => (
         <div className="space-y-6">
           {[
             {
-              icon: <Sparkles size={18} className="text-brand" />,
-              title: "AI panel",
-              body: "Rýchle prepínanie medzi prehliadaním a AI nástrojmi bez zbytočne zložitého UI.",
+              icon: <Globe size={18} className="text-brand" />,
+              title: "Baky Cloud",
+              body: "Cloud režim vie bežať v samostatnom okne aj cez toggle. Routing ide cez Tor, nie len cez vizuálny skin.",
             },
             {
-              icon: <Lock size={18} className="text-emerald-500" />,
-              title: "Súkromie",
-              body: "Vymazanie histórie, cookies a webových stôp z jedného miesta v nastaveniach.",
+              icon: <Shield size={18} className="text-emerald-500" />,
+              title: "Anti-tracking",
+              body: "Browser seká reklamy, tagy a tracking requesty ešte skôr, než sa stihnú normálne rozbehnúť.",
             },
             {
-              icon: <Shield size={18} className="text-rose-500" />,
-              title: "AdBlock",
-              body: "Čistejšie výsledky a menej rušivých prvkov počas bežného prehliadania webu.",
+              icon: <Download size={18} className="text-rose-500" />,
+              title: "Windows build",
+              body: "Stiahneš, rozbalíš a spustíš. Najnovší build ide cez Google Disk a obsahuje aj Tor bundle.",
             },
           ].map((card, index) => (
             <motion.div
@@ -515,10 +551,11 @@ const FinalCTA = () => (
     >
       <div className="relative z-10">
         <h2 className="text-4xl lg:text-6xl font-black tracking-tight mb-8">
-          Vyskúšaj Baky Browser
+          Stiahni si najnovší Baky Browser
         </h2>
         <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Browser od Baky OS pre tých, ktorí chcú rýchlejšie prehliadanie, modernejšie rozhranie a viac kontroly nad súkromím.
+          Windows browser od Baky OS pre tých, ktorí chcú Baky Cloud, adblock, anti-tracking
+          a viac kontroly nad súkromím. Najnovší build ide z tvojho Google Drive linku.
         </p>
         <a
           href={DOWNLOAD_URL}
@@ -530,7 +567,9 @@ const FinalCTA = () => (
           Stiahnuť teraz
         </a>
         <p className="mt-6 text-sm text-blue-200">Dostupné pre Windows</p>
-        <p className="mt-2 text-sm font-medium text-blue-100">Sťahuje sa z Google Disku.</p>
+        <p className="mt-2 text-sm font-medium text-blue-100">
+          Súčasťou buildu je aj Tor bundle pre Baky Cloud.
+        </p>
         <div className="mt-6 max-w-2xl mx-auto rounded-2xl border border-white/20 bg-white/10 px-5 py-4 text-left backdrop-blur-sm">
           <div className="flex items-start gap-3">
             <div className="mt-0.5 text-amber-200">
@@ -539,9 +578,10 @@ const FinalCTA = () => (
             <div>
               <div className="text-sm font-semibold text-white">Tip po stiahnutí</div>
               <p className="mt-1 text-sm leading-6 text-blue-100">
-                Ak sa Baky Browser po prvom spustení nenačíta správne alebo bude chvíľu reagovať pomalšie,
-                zavri ho a spusti znova. V niektorých prípadoch pomôže aj opätovný dvojklik na súbor, aby si si
-                mohol naplno užiť čistejšie a súkromnejšie prehliadanie.
+                Po stiahnutí nechaj build pokope v jednom priečinku. Baky Cloud potrebuje
+                priečinok <span className="font-semibold text-white">resources</span> aj
+                <span className="font-semibold text-white"> tor-bundle</span>, takže
+                nespúšťaj iba vytrhnuté <span className="font-semibold text-white">.exe</span>.
               </p>
             </div>
           </div>
@@ -564,7 +604,8 @@ const Footer = () => (
             <span className="text-xl font-bold tracking-tight text-slate-900">Baky Browser</span>
           </div>
           <p className="text-slate-500 max-w-sm leading-relaxed">
-            Produkt firmy Baky OS. Browser pre Windows zameraný na rýchlosť, čistejšie rozhranie a väčšiu kontrolu nad súkromím.
+            Produkt Baky OS. Windows browser s Baky Cloud režimom, adblockom, anti-trackingom
+            a väčšou kontrolou nad tým, čo web robí.
           </p>
         </div>
 
@@ -572,26 +613,26 @@ const Footer = () => (
           <h5 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">Produkt</h5>
           <ul className="space-y-4">
             <li><a href="#funkcie" className="text-slate-500 hover:text-brand transition-colors">Funkcie</a></li>
-            <li><a href="#rozhranie" className="text-slate-500 hover:text-brand transition-colors">Rozhranie</a></li>
+            <li><a href="#cloud" className="text-slate-500 hover:text-brand transition-colors">Baky Cloud</a></li>
             <li><a href="#stiahnut" className="text-slate-500 hover:text-brand transition-colors">Stiahnuť</a></li>
           </ul>
         </div>
 
         <div>
-          <h5 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">Baky OS</h5>
+          <h5 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">Build</h5>
           <ul className="space-y-4">
-            <li><a href="#" className="text-slate-500 hover:text-brand transition-colors">O projekte</a></li>
-            <li><a href="#" className="text-slate-500 hover:text-brand transition-colors">Súkromie</a></li>
-            <li><a href="#" className="text-slate-500 hover:text-brand transition-colors">Kontakt</a></li>
+            <li><a href="#rozhranie" className="text-slate-500 hover:text-brand transition-colors">Rozhranie</a></li>
+            <li><a href={DOWNLOAD_URL} className="text-slate-500 hover:text-brand transition-colors" target="_blank" rel="noreferrer">Google Disk download</a></li>
+            <li><a href="#stiahnut" className="text-slate-500 hover:text-brand transition-colors">Windows build</a></li>
           </ul>
         </div>
       </div>
 
       <div className="pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-slate-400 text-sm">© 2025 Baky OS. Všetky práva vyhradené.</p>
+        <p className="text-slate-400 text-sm">© 2026 Baky OS. Všetky práva vyhradené.</p>
         <div className="flex gap-8">
-          <a href="#" className="text-slate-400 hover:text-brand transition-colors text-sm">Podmienky</a>
-          <a href="#" className="text-slate-400 hover:text-brand transition-colors text-sm">Cookies</a>
+          <a href="#cloud" className="text-slate-400 hover:text-brand transition-colors text-sm">Baky Cloud</a>
+          <a href="#funkcie" className="text-slate-400 hover:text-brand transition-colors text-sm">Funkcie</a>
         </div>
       </div>
     </div>
