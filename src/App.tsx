@@ -18,7 +18,7 @@ import { useState } from "react";
 
 const BAKY_LOGO = "/BakyBrowser.png";
 const BAKY_CLOUD_LOGO = "/Baky_cloud_-removebg.png";
-const DOWNLOAD_URL = "https://github.com/GeneralMartin180/baky-browser-auto-uptade-/releases/download/v0.1.10/Baky.Browser.Setup.0.1.10.exe";
+const DOWNLOAD_URL = "https://github.com/GeneralMartin180/baky-browser-auto-uptade-/releases/download/v0.1.11/Baky.Browser.Setup.0.1.11.exe";
 
 const BrandMark = ({ large = false }: { large?: boolean }) => (
   <img
