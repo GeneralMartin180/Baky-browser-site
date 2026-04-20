@@ -18,7 +18,7 @@ import { useState } from "react";
 
 const BAKY_LOGO = "/BakyBrowser.png";
 const BAKY_CLOUD_LOGO = "/Baky_cloud_-removebg.png";
-const DOWNLOAD_URL = "https://drive.google.com/uc?export=download&id=18ZyjgSSt5NIY7ASqgcuOvnZy7AhzjihY";
+const DOWNLOAD_URL = "https://github.com/GeneralMartin180/baky-browser-auto-uptade-/releases/download/v0.1.10/Baky.Browser.Setup.0.1.10.exe";
 
 const BrandMark = ({ large = false }: { large?: boolean }) => (
   <img
@@ -256,7 +256,7 @@ const Hero = () => (
           </div>
         </div>
         <p className="mt-4 text-sm font-medium text-slate-500">
-          Najnovší build sa sťahuje priamo z Google Disku.
+          Najnovší build sa sťahuje priamo z GitHub release assetu.
         </p>
       </motion.div>
 
@@ -519,7 +519,7 @@ const InterfacePreview = () => (
             {
               icon: <Download size={18} className="text-rose-500" />,
               title: "Windows build",
-              body: "Stiahneš, rozbalíš a spustíš. Najnovší build ide cez Google Disk a obsahuje aj Tor bundle.",
+              body: "Stiahneš, rozbalíš a spustíš. Najnovší build ide priamo cez GitHub release asset a obsahuje aj Tor bundle.",
             },
           ].map((card, index) => (
             <motion.div
@@ -555,7 +555,7 @@ const FinalCTA = () => (
         </h2>
         <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
           Windows browser od Baky OS pre tých, ktorí chcú Baky Cloud, adblock, anti-tracking
-          a viac kontroly nad súkromím. Najnovší build ide z tvojho Google Drive linku.
+          a viac kontroly nad súkromím. Najnovší build ide priamo cez GitHub release asset.
         </p>
         <a
           href={DOWNLOAD_URL}
@@ -622,7 +622,7 @@ const Footer = () => (
           <h5 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">Build</h5>
           <ul className="space-y-4">
             <li><a href="#rozhranie" className="text-slate-500 hover:text-brand transition-colors">Rozhranie</a></li>
-            <li><a href={DOWNLOAD_URL} className="text-slate-500 hover:text-brand transition-colors" target="_blank" rel="noreferrer">Google Disk download</a></li>
+            <li><a href={DOWNLOAD_URL} className="text-slate-500 hover:text-brand transition-colors" target="_blank" rel="noreferrer">Priamy .exe download</a></li>
             <li><a href="#stiahnut" className="text-slate-500 hover:text-brand transition-colors">Windows build</a></li>
           </ul>
         </div>
